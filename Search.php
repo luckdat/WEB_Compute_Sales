@@ -10,7 +10,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #e8f0fe;
+
         }
 
         .hero {
@@ -55,12 +56,31 @@
             text-align: center;
             width: 280px;
             height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .single_product form {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            /* Khoảng cách giữa các nút */
         }
 
         .single_product img {
             width: 180px;
             height: 180px;
             border: 2px solid black;
+
+        }
+
+
+        .single_product a,
+        .single_product form {
+            display: inline-block;
+            margin: 3px;
         }
 
         .single_product:hover img {
@@ -93,27 +113,36 @@
     </header>
     <?php
     include 'Connect.php';
+
     if (isset($_GET['search'])) {
+        // Lấy dữ liệu từ form tìm kiếm
         $search = $_GET['user_query'];
+    } else {
+        $search = ''; // Trường hợp không có từ khóa tìm kiếm
     }
+
     ?>
+
     <div class="products_box">
-        <h3>The search results product : <?php echo $search; ?></h3>
+        <h3>The search results for: <?php echo htmlspecialchars($search); ?></h3>
+
+
         <?php
+        // Truy vấn cơ sở dữ liệu với từ khóa tìm kiếm
         $sql = "SELECT * FROM Products WHERE ProductName LIKE '%{$search}%'";
 
         $result = mysqli_query($conn, $sql);
-        /* Tìm và trả về kết quả dưới dạng mảng */
+
         while ($row_product = mysqli_fetch_array($result)) {
             $ProductID = $row_product['ProductID'];
             $ProductName = $row_product['ProductName'];
-            $Price = $row_product['Price']; 
-            $ImageURL = $row_product['ImageURL']; 
+            $Price = $row_product['Price'];
+            $ImageURL = $row_product['ImageURL'];
             $Stock = $row_product['Stock'];
-            $Description = $row_product['Description']; 
+            $Description = $row_product['Description'];
 
             echo "
-            <div class='single_product'>
+           <div class='single_product'>
                 <h3>$ProductName</h3>
                 <img src='images/$ImageURL' width='180' height='180' alt='Image of $ProductName' />
                 <p>$Description</p>
@@ -121,14 +150,19 @@
                 <a href='ProductDetail.php?id=$ProductID'>
                     <button style='background-color: #00BFFF; color: white;'>Details</button>
                 </a>
-                <a href='Cart.php?id=$ProductID'>
-                    <button style='background-color: #32CD32; color: white;'>Add to Cart</button>
-                </a>
-            </div>";
-            
+                <form action='Cart.php' method='POST'>
+                    <input type='hidden' name='ProductID' value='$ProductID'>
+                    <button type='submit' style='background-color: #32CD32; color: white;'>Add to Cart</button>
+                </form>
+
+             </div>
+        ";
         }
+
+
         ?>
-    </div>
+
 
 </body>
+
 </html>

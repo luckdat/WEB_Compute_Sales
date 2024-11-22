@@ -117,9 +117,14 @@
                             <h2>Name Of Product: <?php echo $row['ProductName']; ?></h2>
                             <p style="color: black;">Stock: <?php echo $row['Stock'] . " Pieces"; ?></p>
                             <p style="color: red;">Price: <?php echo $row['Price'] . " $"; ?></p>
-                            <a href='Cart.php?ProductID=<?php echo $ProductID; ?>'>
+                            <!-- <a href='Cart.php?ProductID=<?php echo $ProductID; ?>'>
                                 <button class="btn btn-primary">Add to Cart</button>
-                            </a>
+                            </a> -->
+                            <form action="Cart.php" method="POST">
+                                <input type="hidden" name="ProductID" value="<?php echo $ProductID; ?>">
+                                <input type="hidden" name="Quantity" value="1">
+                                <button type="submit" class="btn btn-success">Add to Cart</button>
+                            </form>
                             <h3 class="mt-4">Basic product info:</h3>
                             <p><?php echo $row["Description"]; ?></p>
                         </div>

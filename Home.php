@@ -114,7 +114,7 @@
             $result = mysqli_query($conn, $sql);
 
             if ($result && mysqli_num_rows($result) > 0) {
-               
+
                 while ($row_product = mysqli_fetch_assoc($result)) {
 
                     $ProductID = $row_product['ProductID'];
@@ -132,7 +132,7 @@
                         <p style="margin: 10px;"><?php echo htmlspecialchars($Description); ?></p>
                         <p><b>Price: <?php echo number_format($Price, 0, ',', '.'); ?> VNĐ</b></p>
                         <a href="ProductDetail.php?id=<?php echo $ProductID ?>" class="btn btn-info">Details</a>
-                    <!-- Ẩn giá trị ProductID để gửi qua POST -->
+                        <!-- Ẩn giá trị ProductID để gửi qua POST -->
                         <input type="hidden" name="ProductID" value="<?php echo $ProductID; ?>">
                         <input type="hidden" name="Quantity" value="1">
                         <button type="submit" class="btn btn-success">Add to Cart</button>
@@ -164,4 +164,5 @@
         <p>&copy; 2024 Kawaii Computer Store. Tất cả quyền được bảo lưu.</p>
     </footer>
 </body>
+
 </html>

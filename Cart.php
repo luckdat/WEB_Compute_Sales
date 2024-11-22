@@ -180,7 +180,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['Produ
                                     <td><?php echo $item['Quantity']; ?></td>
                                     <td><?php echo number_format($item['Price'], 0, ',', '.'); ?> VNĐ</td>
                                     <td><?php echo number_format($item['Price'] * $item['Quantity'], 0, ',', '.'); ?> VNĐ</td>
-                                    <td><a href="Cart.php?action=delete&ProductID=<?php echo $item['ProductID']; ?>" class="btn btn-danger btn-sm">Xóa</a></td>
+                                    <td><a href="Cart.php?action=delete&ProductID=<?php echo $item['ProductID']; ?>" class="btn btn-danger btn-sm">Delete</a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
