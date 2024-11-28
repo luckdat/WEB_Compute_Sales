@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8fd;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background: #34495e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #2c3e50;
+    border-radius: 4px;
+}
+
+.hero {
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.search {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search input {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #34495e;
+    border-radius: 4px;
+}
+
+.search button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #34495e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.products_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.single_product {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.single_product img {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.single_product h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.single_product p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.single_product a,
+.single_product button {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    background: #1abc9c;
+    border-radius: 4px;
+    transition: background 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.single_product a:hover,
+.single_product button:hover {
+    background: #16a085;
+}
+
+.single_product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+#about,
+#contact {
+    padding: 30px 20px;
+    text-align: center;
+    background: #ecf0f1;
+    margin: 30px 0;
+    border-radius: 8px;
+}
+
+#about h2,
+#contact h2 {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+#about p,
+#contact p {
+    font-size: 16px;
+    color: #555;
+}

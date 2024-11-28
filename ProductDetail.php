@@ -8,92 +8,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-color: #e8f0fe;
-
-        }
-
-        .hero {
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 48px;
-        }
-
-        .product-item {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .search {
-            margin: 20px 0;
-        }
-
-        .products_box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            justify-content: center;
-        }
-
-        .single_product {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-            width: 280px;
-            height: auto;
-            background-color: white;
-        }
-
-        .single_product img {
-            width: 180px;
-            height: 180px;
-            border: 2px solid black;
-        }
-
-        .single_product:hover img {
-            opacity: 0.7;
-        }
-    </style>
-    </style>
+    <link rel="stylesheet" href="Home.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Kawaii Computer Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="Home.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Product.php">Product Management</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ProductDetail.php"><b>Product Detail</b></a></li>
-                        <li class="nav-item"><a class="nav-link" href="Cart.php">Cart</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Login.php">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
+        <a class="navbar-brand" href="#">Kawaii Computer Store</a>
+        <nav>
+            <ul>
+                <li><a href="Home.php"><b>Home</b></a></li>
+                <li><a href="Product.php">Product Management</a></li>
+                <li><a href="ProductDetail.php">Product Detail</a></li>
+                <li><a href="Cart.php">Cart</a></li>
+                <li><a href="Login.php">Logout</a></li>
+            </ul>
         </nav>
     </header>
-
+    <div class="hero">
+        <h2>Welcome to Kawaii Computer Store</h2>
+        <p>Your one-stop shop for cute and powerful computers!</p>
+    </div>
 
     <div class="container">
         <?php
@@ -146,7 +80,7 @@
                 <?php
                 include "Connect.php";
 
-                $sql = "SELECT * FROM Products LIMIT 12";
+                $sql = "SELECT * FROM Products LIMIT 8";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result && mysqli_num_rows($result) > 0) {
@@ -182,17 +116,6 @@
 
                 ?>
             </div>
-            <section id="about" class="container mt-5 text-center">
-                <h2>Giới Thiệu Về Chúng Tôi</h2>
-                <p>Chúng tôi chuyên cung cấp các sản phẩm máy tính dễ thương và mạnh mẽ với giá cả phải chăng!</p>
-            </section>
-
-            <section id="contact" class="container mt-5 text-center">
-                <h2>Liên Hệ Với Chúng Tôi</h2>
-                <p>Email: info@kawaiicomputerstore.com</p>
-                <p>Điện thoại: (123) 456-7890</p>
-            </section>
-
             <footer>
                 <p>&copy; 2024 Kawaii Computer Store. Tất cả quyền được bảo lưu.</p>
             </footer>
