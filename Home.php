@@ -38,7 +38,7 @@
         <div class="products_box">
             <?php
             include "Connect.php";
-            $sql = "SELECT * FROM Products LIMIT 12";
+            $sql = "SELECT * FROM Products LIMIT 15";
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row_product = mysqli_fetch_assoc($result)) {
